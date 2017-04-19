@@ -2,11 +2,11 @@ from sklearn.decomposition import IncrementalPCA
 import numpy as np
 
 class Dim_reduction():
-    def construct_pca_by_map(self, training_data):
+    def construct_pca(self, training_data, transform_dim=10):
         dims = training_data.shape[1]
         m_pca = None
-        if dims > 10:
-            m_pca = IncrementalPCA(10)
+        if dims > transform_dim:
+            m_pca = IncrementalPCA(transform_dim)
         else:
             m_pca = IncrementalPCA(dims)
         if dims > 2000:
